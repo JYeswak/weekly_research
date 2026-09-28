@@ -1,11 +1,7 @@
 # Gaps and unknowns
 
-## Mailbox
+Planning clusters G, S, D, M are frozen.
 
-| ID | Status |
-|---|---|
-| M1–M6 | frozen |
-| M7 | FROZEN A — wr semver; weeks YYYY-Www; PINS tags |
-| M8 | Error codes |
+M8-A exit: 0 ok, 1 findings, 2 usage, 4 worker missing, 5 lock, 130 cancelled.
 
-Mailbox cluster almost closed.
+Next is implementation per docs/KERNEL.md: beads on the Ultra, then `wr doctor` crate.
