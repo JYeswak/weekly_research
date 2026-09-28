@@ -11,9 +11,11 @@ Read repo `SPEC.md` and `AGENTS.md` before any write. Never call `wr sign`. Neve
 
 ## First session
 
-1. `wr doctor` — stop on FAIL.
-2. If no week folder: `wr init --week YYYY-Www` (copies `weeks/_template`).
-3. Fill `protocol.yaml` C fields before `wr harvest`.
+1. `scripts/install.sh --dry-run` — inventory.
+2. `scripts/install.sh --yes` — install only missing **pinned** required tools (`httpx`, `trafilatura`, `fmd` v0.4.5, frankenmermaid v0.2.0). Needs `cargo` already on PATH.
+3. `wr doctor` when the CLI exists — stop on FAIL.
+4. `wr init --week YYYY-Www` if no week folder.
+5. Fill `protocol.yaml` C fields before `wr harvest`.
 
 ## Verb order
 
@@ -21,7 +23,8 @@ Read repo `SPEC.md` and `AGENTS.md` before any write. Never call `wr sign`. Neve
 
 ## Robot mode
 
-Pass `--robot` for JSON on stdout. Non-zero exit is the gate. Do not parse human banners.
+Pass `--robot` for JSON on stdout. Non-zero exit is the gate.
+Installer for agents: `scripts/install.sh --yes` (no prompt).
 
 ## Hard rules
 
@@ -29,11 +32,11 @@ Pass `--robot` for JSON on stdout. Non-zero exit is the gate. Do not parse human
 - `pin` is local/inbox files only.
 - Do not fetch during `synthesize`.
 - Do not promote Verified by model vote.
-- Missing Jev/MCP/yt-dlp = WARN + ungraded/Unknown, not fake Verified.
-- Missing `fmd` or mermaid renderer = doctor FAIL.
-- `show/` PDF+PNG after L0 PASS are DRAFT until signed.
+- Missing Jev/MCP/yt-dlp = WARN + ungraded/Unknown.
+- Missing `fmd` or frankenmermaid = doctor FAIL.
+- Do not `curl | bash` unpinned `main` installers.
 - Restricted license rows: no public excerpt.
 
 ## Config
 
-Copy `wr.toml.example` → `wr.toml`. Workers: `command` and/or `url`. Do not commit secrets.
+Copy `wr.toml.example` → `wr.toml`. Do not commit secrets.
