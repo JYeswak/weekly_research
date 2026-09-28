@@ -3,10 +3,10 @@
   "tasks": [
     {
       "id": "T1",
-      "verb": "test",
+      "verb": "check",
       "inputs": [],
-      "done_when": "",
-      "owner": "human",
+      "done_when": "check.json exists",
+      "owner": "wr",
       "depends_on": []
     }
   ]

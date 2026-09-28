@@ -1,42 +1,16 @@
 ---
 name: weekly-research
-description: "Operate the wr research desk: install, doctor, init, harvest, pin, claim, plan, check, export, review, synthesize, sign. Use when running weekly_research, building a review kit, or dispatching from a signed packet. NOT for general web search without a brief."
+description: "Operate weekly_research planning desk. Verbs: install doctor init harvest pin claim check export synthesize sign show service. Read wr_plan_v1.md. NOT general web search."
 type: tool
 lifecycle: active
 ---
 
-# weekly-research — wr operator surface
+# weekly-research
 
-Read repo `SPEC.md` and `AGENTS.md` before any write. Never call `wr sign`. Never commit `snaps/`.
+`wr` is not implemented. Planning files only.
 
-## First session
+Canonical verbs (Q13): install doctor init harvest pin claim check export synthesize sign show service.
 
-1. `scripts/install.sh --dry-run` — inventory.
-2. `scripts/install.sh --yes` — install only missing **pinned** required tools (`httpx`, `trafilatura`, `fmd` v0.4.5, frankenmermaid v0.2.0). Needs `cargo` already on PATH.
-3. `wr doctor` when the CLI exists — stop on FAIL.
-4. `wr init --week YYYY-Www` if no week folder.
-5. Fill `protocol.yaml` C fields before `wr harvest`.
+No plan/test/review verbs. Humans drop `reviews/*.md`.
 
-## Verb order
-
-`doctor` → `pin`/`harvest` → `claim` → `plan` → `check` → `export` → wait for `reviews/` → `synthesize` → human `sign` → `test` / `show`.
-
-## Robot mode
-
-Pass `--robot` for JSON on stdout. Non-zero exit is the gate.
-Installer for agents: `scripts/install.sh --yes` (no prompt).
-
-## Hard rules
-
-- Harvest writes sources only.
-- `pin` is local/inbox files only.
-- Do not fetch during `synthesize`.
-- Do not promote Verified by model vote.
-- Missing Jev/MCP/yt-dlp = WARN + ungraded/Unknown.
-- Missing `fmd` or frankenmermaid = doctor FAIL.
-- Do not `curl | bash` unpinned `main` installers.
-- Restricted license rows: no public excerpt.
-
-## Config
-
-Copy `wr.toml.example` → `wr.toml`. Do not commit secrets.
+First session: read wr_plan_v1.md and docs/PRODUCT_THESIS.md. Run `scripts/install.sh --dry-run` only as inventory. Do not treat a green inventory as product proof.

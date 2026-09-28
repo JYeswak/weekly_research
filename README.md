@@ -1,56 +1,28 @@
 # weekly_research
 
-Public research desk. Protocol in, signed artifacts out. Snaps stay on the machine.
+Public research desk. **Planning only** — no `wr` binary, no product proof vs downloaded tools.
 
-CLI is `wr`. Video is the lab notebook, not a client funnel.
-Audience: AI-friendly ops and engineers in small and mid-size shops.
+Locks: [`wr_plan_v1.md`](wr_plan_v1.md). Thesis test: [`docs/PRODUCT_THESIS.md`](docs/PRODUCT_THESIS.md).
 
 ## Status
 
-Repo exists. `wr` is not implemented yet. Locks live in [`SPEC.md`](SPEC.md).
+fix-then-plan. Do not treat this README as a shipped CLI.
 
-## Verbs (week-1 contract)
+## Verbs (Q13 only)
 
-`doctor` `pin` `harvest` `claim` `plan` `check` `show` `test` `export` `review` `synthesize` `sign`
+`install` `doctor` `init` `harvest` `pin` `claim` `check` `export` `synthesize` `sign` `show` `service`
 
-| Verb | Writes | Must not |
-|---|---|---|
-| doctor | machine report | fetch |
-| pin | inbox/local file → source row | search the web |
-| harvest | sources + local snaps | claims, prose |
-| claim | pointer + excerpt_hash | fetch, sign |
-| plan | packet.md UNSIGNED | execute |
-| check | check.json | call a model |
-| show | stdout / SIGN.md view | mutate ledger |
-| test | localbench receipt | harvest |
-| export | review kit | synthesize |
-| review | reviews/*.md | harvest, sign |
-| synthesize | synth/ + dispatch/ | fetch, sign, new URLs |
-| sign | permit (human only) | run from planner/synth session |
+There is no `plan`, `test`, or `review` verb. Reviews are files humans drop in `reviews/`.
 
 ## Layout
 
 ```
-weeks/YYYY-Www/     notebook issue (not the protocol window)
-  protocol.yaml
-  SIGN.md
-  ledger/
-  reviews/
-  synth/
-  dispatch/
-  show/
-inbox/              pulse leads → wr pin
-snaps/              gitignored bytes
-prompts/grade.md    frozen referee prompt
-SPEC.md             frozen locks
+wr_plan_v1.md          bible
+weeks/YYYY-Www/        one question per protocol.yaml
+snaps/                 gitignored
+artifacts/             robot example + schema
 ```
 
-## Non-negotiables
+## Do not
 
-- Harvest writes sources only.
-- Verified requires a second evidence path, not a second model on the same excerpt.
-- Cron may build empty synth/dispatch shells. Opus does not fill them until reviews/ has a file.
-- Drive is a mailbox. Git + local snaps are the ledger.
-- Keys belong to the operator.
-
-See [SPEC.md](SPEC.md).
+Commit snaps. Call sign from an agent. Promote Verified by model vote. Claim wr exists.

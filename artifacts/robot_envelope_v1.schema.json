@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "robot_envelope_v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ok", "verb", "exit", "week", "paths", "error", "counts", "repairs", "warnings", "kit_hash"],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "verb": { "type": "string", "enum": ["install", "doctor", "init", "harvest", "pin", "claim", "check", "export", "synthesize", "sign", "show", "service"] },
+    "exit": { "type": "integer", "enum": [0, 1, 2, 4, 5, 130] },
+    "week": { "type": ["string", "null"] },
+    "paths": { "type": "array", "items": { "type": "string" } },
+    "error": { "type": ["string", "null"] },
+    "counts": { "type": "object" },
+    "repairs": { "type": "array" },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "kit_hash": { "type": ["string", "null"] }
+  }
+}

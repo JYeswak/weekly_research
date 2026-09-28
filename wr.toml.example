@@ -1,7 +1,17 @@
-# Copy to wr.toml locally. Do not commit secrets.
+# Copy to wr.toml. Do not commit secrets.
+
+[mailbox]
+drive_folder = ""
+
+[extract]
+command = "trafilatura"
+timeout_s = 60
+output_limit_bytes = 2000000
+
+[workers.tts]
+command = ""
 
 [workers.x]
-# Set command, url, or both. doctor checks what is present.
 command = ""
 url = ""
 
@@ -19,10 +29,8 @@ command = "focr"
 command = "yt-dlp"
 
 [workers.opus]
-# optional synthesize/review worker
 command = ""
 url = ""
 
 [workers.nim]
-# secondary URL proposer only
 url = ""
