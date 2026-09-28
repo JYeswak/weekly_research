@@ -1,13 +1,12 @@
 # Gaps and unknowns
 
-Harvest, synth, install D* frozen except mailbox.
-D7-A+: exclusive run per week db; parallel proposers + per-host-capped fetch inside the Region.
+All harvest/synth/install frozen.
 
 ## Mailbox
 
-| ID | Gap |
+| ID | Status |
 |---|---|
-| M1 | Drive folder ids |
+| M1 | FROZEN A — WR_DRIVE_FOLDER or wr.toml; WARN if unset |
 | M2 | Voice |
 | M3 | Automations |
 | M4 | YouTube quote cap |
