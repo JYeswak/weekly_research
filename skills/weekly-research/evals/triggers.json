@@ -1,0 +1,8 @@
+{
+  "skill": "weekly-research",
+  "test_cases": [
+    {"input": "run wr harvest for this week", "should_trigger": true},
+    {"input": "export the review kit", "should_trigger": true},
+    {"input": "what is the weather in Missoula", "should_trigger": false}
+  ]
+}
