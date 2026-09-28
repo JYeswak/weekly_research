@@ -4,9 +4,9 @@
 
 | ID | Status |
 |---|---|
-| M1 | FROZEN A — Drive folder WARN if unset |
-| M2 | FROZEN A — workers.tts after sign; show/script.md → show/vo.wav; WARN if missing |
-| M3 | Automations |
+| M1 | FROZEN A — Drive WARN if unset |
+| M2 | FROZEN A — frankentts after sign |
+| M3 | FROZEN A — wr service install/status/uninstall; launchd/systemd; harvest+export only; default off |
 | M4 | YouTube quote cap |
 | M5 | Snap retention |
 | M6 | Telemetry |
