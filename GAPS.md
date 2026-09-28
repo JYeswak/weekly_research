@@ -1,14 +1,12 @@
 # Gaps and unknowns
 
-Living register. Close a row with a date + pointer.
-
 ## Blocks harvest
 
 | ID | Gap | Default if we must ship |
 |---|---|---|
-| G1 | FROZEN A 2026-09-28 | X = `x-cli-infisical` (`tweet search` etc). Reddit = MCP `get_subreddit_posts` / `get_post_comments`. Map `post_url`→permalink, `selftext`→text. Grey-lit. |
-| G2 | NIM proposer fixture | `{question, max}` → `{urls:[]}` only |
-| G3 | Local proposer command | empty = brief + inbox only |
+| G1 | FROZEN A | X CLI + Reddit MCP field map |
+| G2 | FROZEN B | NIM `{urls:[{url,title,reason}]}`; ledger stores url only |
+| G3 | FROZEN B | local proposer is a required *role*; missing command = WARN; harvest continues |
 | G4 | Pointer types | `html_range` `pdf_page_span` `caption_t0_t1` `git_path@sha:line` `inbox_offset` |
 | G5 | Second-path agree | both nonempty AND neither Jev-Contradicted; else Inference |
 | G6 | Jev τ | missing = ungraded; present = Withheld on explicit inject label |
@@ -33,4 +31,4 @@ M1–M8 unchanged.
 
 ## Closed
 
-C-pins, C-spdx, C-fr-init, C-install, G1-A.
+C-pins, C-spdx, C-fr-init, C-install, G1-A, G2-B, G3-B.
