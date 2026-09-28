@@ -1,10 +1,14 @@
 # Cloud agent: Runner
 
-Only run after Joshua pastes: freeze hash, system id, revision SHA, task id, budget remaining.
+Only after Joshua pastes: freeze hash, system id, revision, task id, remaining cap (agent-hours + human minutes).
 
-Install that ONE system in the VM. Do not persist it in this repo.
-Run the frozen task input. Save stdout/stderr under /tmp/run.txt.
-Paste the last 80 lines in the PR. Do not invent metrics.
-Do not read docs/step0/oracles.
-Do not change wr_plan_v1.md.
-Stop when budget minutes hit the number in the prompt.
+## Destination (unambiguous)
+
+- **Private lab repo or Ultra campaign dir** — full bundle before the VM dies:
+  `inputs/`, `config.json`, `stdout.log`, `stderr.log`, `exit.txt`, `usage.json` (tokens/agent-hours if visible), `sha256sums.txt`.
+- **Public PR** — sanitized note only (`docs/step0/notes/runs/<system>-<task>-<trial>.md`): pass/fail/blocked, hashes of private files, no secrets, no restricted excerpts.
+
+Do not leave the only copy in `/tmp`. Do not paste 80 log lines to a public PR.
+
+Do not read `docs/step0/oracles`. Do not edit `wr_plan_v1.md`.
+Stop when the pasted cap is hit.
