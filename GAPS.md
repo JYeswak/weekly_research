@@ -2,13 +2,13 @@
 
 ## Blocks harvest
 
-G1–G12 FROZEN. Rule: one question per protocol week. W40 = desk harvest. W41 = mechanisms.
+G1–G12 FROZEN.
 
 ## Blocks synthesize / dispatch / show
 
-| ID | Gap |
+| ID | Status |
 |---|---|
-| S1 | Opus worker invoke |
+| S1 | FROZEN A — opus command/url; stdin kit paths; writes only synth/ and dispatch/ |
 | S2 | synth/ templates |
 | S3 | ntm.json schema |
 | S4 | check synth predicates |
@@ -26,4 +26,4 @@ M1–M8 open.
 
 ## Closed
 
-C-pins, C-spdx, C-fr-init, C-install, G1–G12.
+C-pins, C-spdx, C-fr-init, C-install, G1–G12, S1.
