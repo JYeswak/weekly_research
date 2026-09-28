@@ -1,0 +1,28 @@
+# Copy to wr.toml locally. Do not commit secrets.
+
+[workers.x]
+# Set command, url, or both. doctor checks what is present.
+command = ""
+url = ""
+
+[workers.reddit]
+command = ""
+url = ""
+
+[workers.jev]
+command = "jev"
+
+[workers.focr]
+command = "focr"
+
+[workers.yt-dlp]
+command = "yt-dlp"
+
+[workers.opus]
+# optional synthesize/review worker
+command = ""
+url = ""
+
+[workers.nim]
+# secondary URL proposer only
+url = ""
