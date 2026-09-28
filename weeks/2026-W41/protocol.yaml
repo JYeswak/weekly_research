@@ -1,0 +1,19 @@
+id: 2026-W41-mechanisms-survive-franken
+question: >
+  Which September 2026 deep-research mechanisms (isolation,
+  second evidence path, verify-gated completion, IterResearch workspaces,
+  citation-grounded workers) survive Franken grading if we tried to adopt them?
+inclusion: >
+  Named mechanism; repo at a commit or paper with id;
+  gradable from a pinned snap or testable on this desk.
+exclusion: >
+  wr installer dogfood (that is 2026-W40);
+  listicles; posts as sole Verified evidence.
+since: 2026-07-01
+until: now
+source_classes: [arxiv, github, web, inbox, youtube, openalex, x, reddit]
+allow_hosts: []
+deny_hosts: []
+grey_lit: vendor blogs Inference only; X/Reddit leads not Verified
+conflict: report
+max_sources: 12

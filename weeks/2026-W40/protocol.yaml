@@ -1,20 +1,17 @@
-id: 2026-W40-wr-harvest-and-mechanisms
+id: 2026-W40-smallest-honest-harvest
 question: >
-  What is the smallest honest wr harvest on an M3 Ultra this week,
-  and which September 2026 deep-research mechanisms (isolation,
-  second evidence path, verify-gated completion, IterResearch workspaces,
-  citation-grounded workers) survive Franken grading if we tried to adopt them?
+  What is the smallest honest wr harvest on an M3 Ultra this week?
 inclusion: >
-  Named mechanism or runnable extractor/CLI; repo at a commit or paper with id;
-  must be testable on this desk or gradable from a pinned snap.
+  Runnable wr/doctor/install path; pinned extractor or CLI on this machine;
+  one paper or commit only if it changes that path.
 exclusion: >
-  Listicles; unnamed tools; paywalled HTML we cannot snapshot;
-  posts used as the only evidence for Verified.
+  Field landscape of deep-research agents (that is 2026-W41);
+  listicles; posts as sole Verified evidence.
 since: 2026-07-01
 until: now
-source_classes: [arxiv, github, web, inbox, youtube, openalex, x, reddit]
+source_classes: [arxiv, github, web, inbox]
 allow_hosts: []
 deny_hosts: []
-grey_lit: vendor blogs Inference only; X/Reddit leads not Verified
+grey_lit: vendor blogs Inference only
 conflict: report
 max_sources: 12
