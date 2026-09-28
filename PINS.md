@@ -1,23 +1,20 @@
 # Install pins
 
-`doctor` FAIL unless these binaries exist. Pin tags, not `main`.
-Checksums: record `sha256` of the installed binary on the Ultra after first install; do not curl unpinned installers in CI.
+Pin tags/crates.io versions, not `main`.
 
-| Tool | Pin | Binary names | Install |
-|---|---|---|---|
-| franken_markdown | **v0.4.5** (2026-09-15) | `fmd` | `cargo install --git https://github.com/Dicklesworthstone/franken_markdown --tag v0.4.5 franken_markdown` or their release archive + sidecar `.sha256` |
-| frankenmermaid | **v0.2.0** | `frankenmermaid` / `fm-cli` | `FM_INSTALL_GIT_TAG=v0.2.0` on their install.sh, or `cargo install --locked` at that tag |
-| this repo | tag when `v0.1.0` exists | `wr` | until then: clone a recorded commit; `scripts/install.sh` must not follow floating `main` in CI |
-| Python extras | pin in pyproject when wr exists | — | `httpx`, `trafilatura` |
+| Tool | Pin | Notes |
+|---|---|---|
+| **asupersync** | **0.5.0** crates.io | D-pin A. Do not follow `main` 0.6.0. Skill zip describes 0.4.x — contracts still apply; version card is stale |
+| franken_markdown | v0.4.5 | `fmd` |
+| frankenmermaid | v0.2.0 | `frankenmermaid` / `fm-cli` |
+| this repo | tag at v0.1.0 | until then record the commit |
 
-Do not use mermaid-js `mmdc` as the required renderer. Q24/Q25 require frankenmermaid so output can be deterministic.
+Cargo:
 
-Optional (WARN if missing): `jev`, `focr`, `yt-dlp`, `localbench`, X/Reddit MCP.
-
-After install on the Ultra, append a row:
-
-```
-date  host  tool  version  binary_sha256
+```toml
+asupersync = "0.5.0"
 ```
 
-to `ops/install-receipts.md` (local or this file once you have hashes).
+Bump only with a dated PINS amendment + a cancel-test receipt on the new version.
+
+Optional PATH: jev, focr, yt-dlp, localbench, X/Reddit MCP, web-bot-auth.
