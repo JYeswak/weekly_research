@@ -1,18 +1,18 @@
-# Discoverer note
+# Discoverer note (repaired)
 
 Assigned: franken-research  
 URL: https://github.com/JYeswak/franken-research  
-Cap: 20 min source read 2026-09-28  
-Pinned revision: **not 40-char in this pass** (inspect live default branch before any trial). History rewrite recorded 2026-09-23 in-repo.
+Cap: repair pass 2026-09-28  
+**Pinned revision:** `112215ddda638d7610097f3f70c8c35a050b40a4` (main, 2026-09-26 watch census)
 
 | Field | Content |
 |---|---|
-| inspected paths | README, RULEBOOK.md, stack/METHOD.md, watch/freshness/SPEC.md, starter-kit/, packets/, LICENSE |
-| best-fit job | Evidence-graded assessment + freshness of *already pinned* repos |
-| smallest reusable piece | RULEBOOK tiers + starter-kit scripts + watch census — not a web harvester |
-| strongest evidence for | METHOD.md: incumbent must fail a named constraint before clean-room; watch/ commits census only after gates |
-| missing capability | No general web/X harvest desk; packets are human+agent research artifacts. Freshness is GitHub API census, not claim retract. |
-| deps | git, Bun/Node/Python/Chrome per starter-kit; MIT no rider on *this* repo |
-| cheapest next experiment | Run existing watch dry-path or read one packet vs a live upstream tag — no new CLI |
-| recommended disposition | **shortlist as extend/combine arm**, not as wr replacement |
-| revisit | After T0: does watch catch a license/archive change we would miss by hand? |
+| inspected paths | LICENSE; stack/METHOD.md at that SHA; README listing; watch/ tree known from prior inspect |
+| best-fit job | Grade evidence and keep pins fresh |
+| smallest reusable piece | stack/METHOD.md clean-room rule + packet/claim tiers |
+| strongest evidence for | METHOD.md quote at this SHA: clean-room only if no incumbent meets a *named hard constraint* cited from a line |
+| missing capability | Not a web report engine. Watch is GitHub census, not claim retract. |
+| deps | MIT text present at this SHA |
+| cheapest next experiment | Arm C on a B report (see ARM_C.md) |
+| recommended disposition | **shortlist combine** |
+| revisit | Pin moves off 112215dd |
