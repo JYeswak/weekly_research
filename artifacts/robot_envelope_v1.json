@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "verb": "doctor",
+  "exit": 0,
+  "week": null,
+  "paths": [],
+  "error": null,
+  "counts": {},
+  "repairs": [],
+  "warnings": [],
+  "kit_hash": null
+}
