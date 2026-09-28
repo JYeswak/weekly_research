@@ -5,36 +5,36 @@ Frozen from the planning session (2026-09-27/28). Amendments need a date and rea
 ## Product
 
 - Repo: `JYeswak/weekly_research` (public)
-- CLI: `wr`
+- CLI: `wr` — operator and agent entry (`--robot` JSON)
+- Install: `scripts/install.sh` now; pipx/uv when the package exists
+- Init: `wr init --week YYYY-Www` copies `weeks/_template`
+- Agent skill: `skills/weekly-research/`
 - Audience: AI-friendly ops / engineers; build-in-public lab notebook
-- `localbench` proves models and harnesses. It is not this repo.
-- Franken starter-kit discipline applies on implementation (pin, tiers, packets).
 
 ## Locks
 
 | ID | Decision |
 |---|---|
-| Q4 | Local proposer default + NIM secondary URL lists |
-| Q11 | Isolated proposers. Verified needs second evidence path |
-| Q12 | Export kit default. Optional Opus worker. You sign |
+| Q4 | Local proposer + NIM secondary URL lists |
+| Q11 | Isolated proposers; Verified needs second path |
+| Q12 | Export kit; optional Opus; human signs |
 | Q13 | Twelve verbs |
-| Q14 | W2: ledger + kit + empty synth/dispatch + SIGN stub. No Opus until reviews exist |
+| Q14 | W2 shells only; no Opus until reviews exist |
 | Q15 | Jev fail-open |
-| Q16 | `.sqlite3` file contract; fsqlite optional |
+| Q16 | sqlite3 file; fsqlite optional |
 | Q18 | Typed repair budget |
-| Q19 | Public repo first |
-| Q20 | pin = local/inbox only |
-| Q21 | License class required |
-| Q22 | All listed classes; X/Reddit via existing MCPs |
-| Q23 | Optional allow_hosts / deny_hosts |
-| Q24 | After L0 PASS, run must emit `show/counts.mmd` + PNG and `fmd` PDF of SIGN.md (DRAFT if unsigned). Missing fmd/mmdc = doctor FAIL, not WARN. Opus script still waits for sign |
-| Q30 | Worker command or url |
+| Q19–Q23 | public repo; pin=inbox; license class; all classes + MCP; optional hosts |
+| Q24 | L0 PASS → fmd PDF + mermaid PNG (DRAFT if unsigned) |
+| Q25 | doctor FAIL: python extras + snaps gitignore + sqlite writable + fmd + mermaid renderer. WARN: jev, focr, MCP, yt-dlp |
+| Q30 | worker command or url |
 
-## Protocol
+## Agent ergonomics
 
-Required: question, inclusion, exclusions, since, until, source_classes, max_sources, grey_lit, conflict.
-Optional: allow_hosts, deny_hosts.
+- `--robot` on every verb
+- Non-zero exit is the gate
+- Skill forbids `wr sign` and snap commits
+- `wr init` is the only week-folder constructor
 
 ## Open
 
-doctor checklist detail? robot JSON? episode 1 brief? cron weekday? Drive connector? local wr.toml MCP URLs?
+Installer backend (pipx vs uv vs curl)? robot JSON schema fields? episode 1 brief? cron weekday? Drive connector? local MCP URLs?
