@@ -1,0 +1,10 @@
+id: YYYY-Www-topic
+question: ""
+inclusion: ""
+exclusion: ""
+since: ""
+until: ""
+source_classes: [arxiv, github, web, inbox]
+grey_lit: vendor blogs Inference only; X/Reddit are leads not pins
+conflict: report
+max_sources: 12

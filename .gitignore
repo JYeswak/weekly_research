@@ -1,0 +1,27 @@
+# Local bytes — never commit snaps
+snaps/*
+!snaps/README.md
+
+# Secrets and local env
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Local mailbox copies and repair dumps
+mailbox/
+*.sqlite3-journal
+*.sqlite3-wal
+*.sqlite3-shm
