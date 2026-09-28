@@ -1,0 +1,6 @@
+{
+  "snapshot": "default",
+  "install": "sudo apt-get update && sudo apt-get install -y python3 python3-venv git curl",
+  "start": "python3 --version && git --version",
+  "terminals": []
+}
