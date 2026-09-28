@@ -4,13 +4,11 @@ Frozen from the planning session (2026-09-27/28). Amendments need a date and rea
 
 ## Product
 
-- Repo: `JYeswak/weekly_research` (public)
+- Repo: `JYeswak/weekly_research` (public, **MIT**)
 - CLI: `wr` — operator and agent entry (`--robot` JSON)
-- Install: curl `scripts/install.sh` on the Ultra; uv/pipx from this repo elsewhere
-- Init: `wr init --week YYYY-Www`; `wr init --skill`
-- Agent skill: `skills/weekly-research/`
-- Mailbox: local `mailbox/` now; Google Drive early in implementation
-- First brief: `weeks/2026-W40/protocol.yaml` (dogfood harvest + 2026 mechanisms)
+- Install pins: [`PINS.md`](PINS.md) — `fmd` v0.4.5, `frankenmermaid` v0.2.0
+- Franken kit: [`FRANKEN-INIT.md`](FRANKEN-INIT.md) — copy-list; **do not run** FR `init.sh` here
+- First brief: `weeks/2026-W40/protocol.yaml`
 
 ## Locks
 
@@ -25,20 +23,11 @@ Frozen from the planning session (2026-09-27/28). Amendments need a date and rea
 | Q16 | sqlite3 file; fsqlite optional |
 | Q18 | Typed repair budget |
 | Q19–Q23 | public repo; pin=inbox; license class; all classes + MCP; optional hosts |
-| Q24 | L0 PASS → fmd PDF + mermaid PNG (DRAFT if unsigned) |
-| Q25 | doctor FAIL includes fmd + mermaid; WARN jev/focr/MCP/yt-dlp |
-| Q30 | worker command or url |
-| Q31 | curl + uv/pipx |
-| Q32 | robot envelope with counts/repairs/warnings/kit_hash |
-| Q33 | Drive is an early build requirement; same mailbox layout |
-| Q34 | No Automations until doctor PASS; first weeks manual |
-| Q35 | Episode 1 = A+B in one brief (see weeks/2026-W40) |
+| Q24 | L0 PASS → fmd PDF + frankenmermaid PNG |
+| Q25 | doctor FAIL includes fmd + frankenmermaid; WARN jev/focr/MCP/yt-dlp |
+| Q30–Q35 | command/url workers; curl+uv/pipx; robot envelope; Drive early; manual first weeks; W40 A+B |
+| Q36 | Install pins + MIT + FR copy-list (this page) |
 
-## Agent ergonomics
+## Still local-only
 
-- `--robot` on every verb. Non-zero exit is the gate.
-- Skill forbids `wr sign` and snap commits.
-
-## Still local-only (do not commit)
-
-MCP command/URL secrets in `wr.toml`.
+MCP secrets in `wr.toml`. Binary sha256 receipts after first Ultra install.
