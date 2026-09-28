@@ -25,6 +25,8 @@ Accepted strikes:
 - `install.sh --robot` promised, not implemented.
 - Product thesis is **not** validated (see fork below). Mentors kill clean-room builds without an incumbent-failure constraint.
 
+**Executed baseline update (2026-09-28):** `docs/step0/notes/WR_VS_FR.md` records fresh FR fixture/installation/transfer runs and a limited review-prompt diagnostic. None establishes a wr advantage. Analyst recommendation remains defer separate implementation and evaluate the smallest FR extension. Historical pilot combine/kill wording is not comparative proof or owner build authorization. `GPT_RESEARCHER_HANDOFF.md` records the runnable local-model handoff and its actual validation boundary.
+
 **Fork (pick before more crates):**
 - **Build-doctor:** close `wr-doctor` with fixtures (environment proof only).
 - **Validate-thesis:** `wr-validate-product-thesis` — six real decisions, three workflows (human+agent vs existing researcher vs researcher+franken-research), predeclared scores; adopt / wrap / build. No crate required.

@@ -1,0 +1,165 @@
+{
+  "schema": "wr.step0.takeover/v1",
+  "date": "2026-09-28",
+  "status": "DEFER_SEPARATE_IMPLEMENTATION",
+  "scope": "local FR baseline, reviewer-prompt diagnostic, real GPT Researcher import/configuration; no end-to-end model trial",
+  "host": "Linux x86_64",
+  "python": "3.12.14",
+  "node": "v24.19.0",
+  "pins": {
+    "wr": "2dd0d2bc7b76c4ee31edaa95d830192f8a4ea171",
+    "fr": "112215ddda638d7610097f3f70c8c35a050b40a4",
+    "gptr": "0957c301ed06c2a5857b834358c7227c739041d4"
+  },
+  "runs": {
+    "fr-watch-selftest": {
+      "command": [
+        "node",
+        "watch/watch.mjs",
+        "--selftest"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.1524,
+      "python": "3.12.14",
+      "stdout_sha256": "71bb47402f60e3433f2038175e2ef2bc9a29ec91b6dc07ede130c6f9f389dfbd",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "local fixture execution, not live network quality or end-to-end research benchmark"
+    },
+    "fr-freshness": {
+      "command": [
+        "node",
+        "watch/freshness/harness/run.mjs"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.8467,
+      "python": "3.12.14",
+      "stdout_sha256": "29fbfd8160eb4809399e8c5d632aed440a1238946940f4e211340aa8c78f17d8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "local fixture execution, not live network quality or end-to-end research benchmark"
+    },
+    "fr-install": {
+      "command": [
+        "sh",
+        "<workspace>/franken-research/starter-kit/scripts/init.sh",
+        "<workspace>/fr-install-probe"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.0555,
+      "python": "3.12.14",
+      "stdout_sha256": "425012e3053032f1c4da6632d617c354de0750f9d6dca380f92a7fef9eeaf1b5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "local fixture execution, not live network quality or end-to-end research benchmark"
+    },
+    "fr-empty-plan": {
+      "command": [
+        "sh",
+        "scripts/check-readiness.sh"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 0.0971,
+      "python": "3.12.14",
+      "stdout_sha256": "345ae9129a75cc317440e9574f304c5abc702f42b8ee876f1d3e3dc6abdb274d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "scope": "local fixture execution, not live network quality or end-to-end research benchmark"
+    },
+    "fr-transfer": {
+      "scope": "two directories on one Linux host; not cross-OS portability",
+      "hook_absent_after_copy": true,
+      "hook_restored_by_installer": true,
+      "planning_file_preserved": true
+    },
+    "gptr-constructor": {
+      "status": "PASS_SCOPED",
+      "scope": "real pinned package import and constructor configuration only; no model or search request",
+      "elapsed_seconds": 3.615603090998775,
+      "effective_config": {
+        "FAST_LLM": "ollama:local-model-not-loaded",
+        "SMART_LLM": "ollama:local-model-not-loaded",
+        "STRATEGIC_LLM": "ollama:local-model-not-loaded",
+        "RETRIEVER": "duckduckgo",
+        "CONTEXT_FILTER": "none",
+        "CURATE_SOURCES": false,
+        "IMAGE_GENERATION_ENABLED": false,
+        "USER_AGENT": "weekly_research-step0/0.1 (+https://github.com/JYeswak/weekly_research)",
+        "FAST_TOKEN_LIMIT": 1500,
+        "SMART_TOKEN_LIMIT": 2500,
+        "STRATEGIC_TOKEN_LIMIT": 1500,
+        "MAX_ITERATIONS": 1,
+        "MAX_SEARCH_RESULTS_PER_QUERY": 3,
+        "MAX_SUBTOPICS": 1,
+        "MAX_SCRAPER_WORKERS": 2,
+        "TOTAL_WORDS": 600,
+        "MCP_STRATEGY": "disabled",
+        "REPORT_SOURCE": "web",
+        "VERBOSE": false
+      },
+      "retrievers": [
+        "Duckduckgo"
+      ]
+    },
+    "gptr-preflight": {
+      "pin": "0957c301ed06c2a5857b834358c7227c739041d4",
+      "model": "unavailable-local-model",
+      "endpoint": "http://127.0.0.1:11434",
+      "scope": "preflight, not research quality",
+      "checkout": "0957c301ed06c2a5857b834358c7227c739041d4",
+      "status": "BLOCKED",
+      "errors": [
+        "local Ollama server unavailable"
+      ]
+    },
+    "handoff-tests": {
+      "exit_code": 0,
+      "tests": 7
+    }
+  },
+  "review": {
+    "scope": "one retrospective report, two ordinary and two explicit FR prompts, same source access; no independent human grading or speed/cost claim",
+    "report_sha256": "9d22a49d0ac2a9793617fd5090d888d00ed5e9a98abbe0d689fc2da9ef7f7349",
+    "outcomes": "both conditions detected incomplete model configuration and unsupported experiment exclusivity; no FR-specific advantage established",
+    "artifacts": {
+      "review-1": {
+        "sha256": "37645b3adb31238d5c465e3328bccb5465a82ed620923b835e45ed4fbcb16803",
+        "arm": "ordinary"
+      },
+      "review-2": {
+        "sha256": "e03212acea750e971be26762c9b5c607257292c458ca388c23984a786fd180b4",
+        "arm": "explicit-FR"
+      },
+      "review-3": {
+        "sha256": "9e8b9295d5cde84b05bf31e30263c767f0d7f0b6603bb16d3b96f91117638759",
+        "arm": "ordinary"
+      },
+      "review-4": {
+        "sha256": "328f13bac5ddcd2bbc3bb33a1075b7425ce5aac988d81bc941684f1c87219a5b",
+        "arm": "explicit-FR"
+      }
+    }
+  },
+  "private_artifact_hashes": {
+    "fr-transfer.json": "090799e7fd87f2df3e3d9ed6d9df64bec79f7ab7aa9b578235fd0baac34fbcd1",
+    "gptr-config-check.json": "2af2f1c6721696840b814d12853dbae4c0ceff73514067050ee7b69d42cd06e6",
+    "gptr-install.stderr": "440447add72caeaf1ea59d2f48df85482e8429fed8e34e922d13171d3f87570a",
+    "fr-freshness.stdout": "29fbfd8160eb4809399e8c5d632aed440a1238946940f4e211340aa8c78f17d8",
+    "gptr-constructor-result.json": "0c42984c7c9b8394d33dbd10ba6d5581a90b9775073572a30f73f10fe1f4ff61",
+    "gptr-environment.txt": "e34c8a56aca5be19c80af9bed0ef9bec5a2f13340f9d08c857e2ef7327d20570",
+    "fr-install.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "handoff-tests.json": "78ffa625db4e99d5a80b510fa000f23a8e2a72e594c221b69b53ba73b279d6cc",
+    "fr-install.stdout": "425012e3053032f1c4da6632d617c354de0750f9d6dca380f92a7fef9eeaf1b5",
+    "gptr-editable.stderr": "2e464e41ac14f77e83a14c0002f167d816b7aed9d759aaa6faa4151bbed8d086",
+    "handoff-tests.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "gptr-editable.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fr-watch-selftest.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "handoff-tests.stderr": "33e2a596a66f8f48e1b579a37825c1844a10b9fcd8d59e0d3a384b63905670d9",
+    "fr-watch-selftest.stdout": "71bb47402f60e3433f2038175e2ef2bc9a29ec91b6dc07ede130c6f9f389dfbd",
+    "fr-watch-selftest.json": "41c84365801aa3330ff3f3486600b87ea4a6fbe14ec72378242b8356b02f1998",
+    "fr-freshness.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fr-freshness.json": "477fca2aef1a322b0820601c9c870df83e330c2207c5f0e9971f0e96b45bcfb6",
+    "fr-empty-plan.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fr-empty-plan.stdout": "345ae9129a75cc317440e9574f304c5abc702f42b8ee876f1d3e3dc6abdb274d",
+    "gptr-preflight.json": "256ce2fae64d3e944906c4c01a6eff13fa4f205c9f243ca728b8167f7a9e1e50",
+    "fr-install.json": "652f5543c9b29a9735fe233b5d174bdfe8bbc11c94d4aaae4c37cc9978742a51",
+    "fr-empty-plan.json": "14662543bd0040722ebf705100ee4cc701de74179a263771564a4f0f135e6a60",
+    "gptr-install.stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}
