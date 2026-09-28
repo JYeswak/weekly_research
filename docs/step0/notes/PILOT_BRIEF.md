@@ -1,13 +1,27 @@
-# Fresh pilot brief (not “should wr exist?”)
+# Pilot brief (calibration, two fixtures only)
 
-**Question:** For HTML pages we are allowed to fetch, should default extract stay **Trafilatura as a PATH organ**, or is **Docling** worth the extra install for table/layout fidelity on a 20-page public HTML+PDF mix?
+**Question (narrowed):** On *these two fixtures*, is Trafilatura-as-PATH enough for HTML, and what named tool extracts the PDF table — or does the write-up lack evidence and need an extractor bake-off?
 
-**Why this is fresh:** Wave-1 planning already burned “should wr exist?”. This is a concrete extract decision with a kill: if Trafilatura + one PDF fixture is good enough, do not add Docling to doctor FAIL.
+Not a 20-page mix. Conclusions do not generalize beyond these URLs.
 
-**Oracle (owner):** A layout table cell and a paragraph span from two frozen fixtures Joshua picks. Wrong extract that flips a claim = material error.
+## Fixtures
 
-**Failure cases:** Counting more tags as better extract; recommending Docling because it is newer.
+| id | Kind | URL | Oracle cell | Qualifier |
+|---|---|---|---|---|
+| H1 | permitted HTML | https://www.w3.org/WAI/wcag-curric/table.htm | San Jose 25 Aug 97 Meals **37.74** (caption: actual cost, **US$**) | Checkpoint 5.2 accessible TABLE mark-up |
+| P1 | digital PDF (not scan) | https://arxiv.org/pdf/1706.03762.pdf v7 | Table 2 Transformer (big) EN-DE **28.4** BLEU | “more than 2.0 BLEU” over previous SOTA including ensembles; 3.5 days / 8 P100 |
 
-**Arms:** A current workflow (you + models + FR METHOD only). B gpt-researcher @ `0957c30` if cap approved. C = B report + ARM_C.md. Docling itself is **not** arm B; it is in-scope only as a *mentioned alternative* the report may raise.
+## Baseline extractors (named)
 
-**Do not run** until fixtures exist and a cap is approved.
+- HTML: Trafilatura if present, else stdlib HTML strip (this sandbox: **no Trafilatura**).
+- PDF: **pdftotext (Poppler)** — not Trafilatura. Docling not installed.
+
+## Arms
+
+A: current workflow + extract probe on H1/P1.  
+B: gpt-researcher @ 0957c30 — **blocked here** (no Tavily/LLM keys in this environment).  
+C: FR review of A (and B if it exists). May open cited URLs. Must not start a second hunt; missing alternatives = unresolved.
+
+Owner adjudicates C corrections vs the oracle cells.
+
+Success of this pilot: decide whether a *larger* comparison is worth it. Not a wr crate.
