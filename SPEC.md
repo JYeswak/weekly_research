@@ -22,8 +22,9 @@ Frozen from the planning session (2026-09-27/28). Amendments need a date and rea
 | Q15 | Jev on snap text before excerpt enters a prompt or public kit. Missing Jev = WARN + ungraded, not halt |
 | Q16 | Standard `.sqlite3` file is the contract. FrankenSQLite is an optional engine after a packet says Adopt |
 | Q18 | Typed repair: ≤2 transient retries; empty HTML → one focr or one LDR; G1 Withheld never retried; log repairs[] |
-| Q20 | `pin` = inbox/local file only. Git SHAs belong on harvest rows |
 | Q19 | Public repo created first; spec lives in-tree |
+| Q20 | `pin` = inbox/local file only. Git SHAs belong on harvest rows |
+| Q21 | Every source row has license class: `open | fair-use-quote | unknown | restricted`. `restricted` never appears as a public excerpt |
 
 ## Protocol (brief C fields)
 
@@ -58,4 +59,4 @@ NIM / Opus / Grok / Kimi / GLM: proposers or referees. They do not write `source
 
 ## Open (not frozen)
 
-License field required? Week-1 source_classes beyond web/arxiv/github/inbox? Domain allow/deny? fmd/mermaid week 1? doctor checklist? robot JSON? episode 1 brief? cron weekday? Drive connector vs copy?
+Week-1 source_classes beyond web/arxiv/github/inbox? Domain allow/deny? fmd/mermaid week 1? doctor checklist? robot JSON? episode 1 brief? cron weekday? Drive connector vs copy?
