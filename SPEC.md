@@ -10,6 +10,7 @@ Frozen from the planning session (2026-09-27/28). Amendments need a date and rea
 - Init: `wr init --week YYYY-Www`; `wr init --skill`
 - Agent skill: `skills/weekly-research/`
 - Mailbox: local `mailbox/` now; Google Drive early in implementation
+- First brief: `weeks/2026-W40/protocol.yaml` (dogfood harvest + 2026 mechanisms)
 
 ## Locks
 
@@ -30,13 +31,14 @@ Frozen from the planning session (2026-09-27/28). Amendments need a date and rea
 | Q31 | curl + uv/pipx |
 | Q32 | robot envelope with counts/repairs/warnings/kit_hash |
 | Q33 | Drive is an early build requirement; same mailbox layout |
-| Q34 | No Automations clock until `wr doctor` PASS on the Ultra. First weeks are manual `wr` |
+| Q34 | No Automations until doctor PASS; first weeks manual |
+| Q35 | Episode 1 = A+B in one brief (see weeks/2026-W40) |
 
 ## Agent ergonomics
 
 - `--robot` on every verb. Non-zero exit is the gate.
 - Skill forbids `wr sign` and snap commits.
 
-## Open
+## Still local-only (do not commit)
 
-Episode 1 brief (first public protocol.yaml question)? Local MCP URLs stay in uncommitted wr.toml.
+MCP command/URL secrets in `wr.toml`.
