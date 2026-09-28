@@ -1,198 +1,168 @@
 # wr_plan_v1 — weekly_research bible
 
 Living plan. **This file is the single source of product + process decisions.**
-Live `.beads/issues.jsonl` + `AGENTS.md` override *implementation order*, not these locks.
-Amendments: dated row in UPGRADE_LOG.md + reason. Status words: `planned` | `active` | `committed` (committed = artifact + terminal receipt).
-
-Mapped to Jeffrey’s trees (asupersync, beads_rust): one design bible, beads as executable graph, proof-lane JSON, UPGRADE_LOG, commit-on-main citing bead ids, no feature-branch requirement.
+Live `.beads/issues.jsonl` overrides implementation *order*. Locks change only here + UPGRADE_LOG.
+Status: `planned` | `active` | `committed` (committed = fixture + terminal receipt).
 
 ---
 
-## 0. What this is
+## 0. Reality-check 2026-09-28 (external graders)
 
-Public repo `JYeswak/weekly_research`, **MIT**. CLI `wr` on a Mac M3 Ultra (512 GB, no DGX). Weekly public research desk: harvest → claim → kit → (optional Opus synth) → human sign → show/video. Audience: AI-friendly ops/engineers and tech-focused owners. Not a client-acquisition funnel.
+Reviewed against commit family `afbc83a` / this fold.
 
-First weeks: **2026-W40** smallest honest harvest; **2026-W41** which 2026 mechanisms survive Franken grading. One question per protocol (G12-C). SPEC.md Q35 “W40 A+B” is **struck**.
+**VERDICT: fix-then-plan.** No `wr` binary. Do not treat locks as properties.
+
+Accepted strikes:
+- Beads JSONL is a seed, not a proved `br` import (dependency *objects* vs string ids).
+- `artifacts/robot_envelope_v1.json` is an **example**. Contract = schema + `cargo test --locked --test doctor_contract` (does not exist yet).
+- README / skill / ntm template **must not** invent verbs. Canonical list is Q13 only.
+- `scripts/install.sh` `status_of` / `bin_ok` is **broken** (runs a command named `bin_ok`). Treat installer as untrusted until a fixture proves PATH cases.
+- S4 must list five predicates, not four groups.
+- Pin string is `=0.5.0` everywhere (PINS.md aligned).
+- Cancel-correct harvest is **planned**, not proved. Foreign PATH/URL workers are unbounded unless the worker declares timeout + process-group supervision.
+- Jaccard is alignment only, not promotion. Second path must be independently fetched bytes, not a mirror URL.
+- Schema cannot express two evidence paths per claim yet — L0/Verified is unspecified in SQL.
+- `install.sh --robot` promised, not implemented.
+- Product thesis is **not** validated (see fork below). Mentors kill clean-room builds without an incumbent-failure constraint.
+
+**Fork (pick before more crates):**
+- **Build-doctor:** close `wr-doctor` with fixtures (environment proof only).
+- **Validate-thesis:** `wr-validate-product-thesis` — six real decisions, three workflows (human+agent vs existing researcher vs researcher+franken-research), predeclared scores; adopt / wrap / build. No crate required.
 
 ---
 
-## 1. Invariants (asupersync_plan_v4 role)
+## 1. What this is
+
+Public `JYeswak/weekly_research`, MIT. Intended CLI `wr` on M3 Ultra. Weekly desk: harvest → claim → kit → optional Opus → human sign → show.
+Audience: AI-friendly ops/engineers. Not client acquisition.
+
+Weeks: **2026-W40** smallest honest harvest; **2026-W41** mechanisms vs Franken grading. One question per protocol (G12-C). Q35 A+B **struck**.
+
+Whether a *separate Rust CLI* is justified remains **Unknown** until the thesis bead or an explicit owner override (RULE 0).
+
+---
+
+## 2. Invariants (intended; unproved until receipt)
 
 1. One question per `protocol.yaml` week.
-2. Hunt writes `proposers`. Harvest writes `sources`. Models do not invent byte offsets.
-3. One Region / one writer per week db. Fan-out *inside* the Region. Second writer **exit 5**.
-4. Cancel = request → drain → finalize. No half row, no orphan snap tmp.
-5. Git = pointers + kit. Snap bytes never on git. CAS `snaps/sha256/…`.
+2. Hunt writes `proposers`. Harvest writes `sources`. Models select resolver-issued span IDs; they never supply authoritative offsets.
+3. One Region / one writer per week db. Fan-out inside. Second writer **exit 5** before mutation.
+4. Cancel-correct harvest is **planned**. Exit 130 means cleanup **completed** (joined tasks, reaped owned workers, settled snap reservations, commit or rollback done). Cleanup failure is exit 1, not 130. SIGKILL/power loss is recovery, not cooperative cancel. PATH organs: timeout, process group, TERM→KILL, drained pipes; drop is not a certificate. URL cancel is local transport only unless the worker acks remote stop.
+5. Git = pointers + kit. Snaps CAS-only.
 6. Human signs. Opus writes only `synth/` and `dispatch/`.
-7. Beads = build `wr`. `dispatch/ntm.json` = run a signed week.
-8. `asupersync = "=0.5.0"`, `default-features = false`. No tokio-compat. No Chrome UA default.
+7. Beads = build graph. `ntm.json` = signed-week dispatch.
+8. `asupersync = { version = "=0.5.0", default-features = false }`. No tokio-compat. No Chrome UA.
 9. Only a terminal receipt proves execution.
-10. Demotion always allowed. Promotion only at a named gate.
+10. Demotion always allowed.
 
 ---
 
-## 2. Process (his repos, not the FR stamp pack)
+## 3. Shape
 
-| His artifact | Ours |
-|---|---|
-| `asupersync_plan_v4.md` | **this file** |
-| `.beads/` + `br ready` | `.beads/issues.jsonl`; `br sync --import-only` after pull |
-| `artifacts/*_v1.json` + contract test | `artifacts/robot_envelope_v1.json` |
-| `UPGRADE_LOG.md` | `UPGRADE_LOG.md` |
-| `AGENTS.md` RULE 0 + work-graph | `AGENTS.md` (must keep 12 forbidden patterns verbatim — still due) |
-| `TESTING_FOR_AGENTS.md` | planned |
-| Commit subject cites bead | `wr-doctor:` etc. on `main` |
-| File reservation / Agent Mail | planned when a second agent writes `src/` |
-| Status committed/active/planned | verb table §6 |
+One package `wr`. Pins in PINS.md. sqlite3 file; fsqlite only after Adopt packet.
+Extract = configured PATH worker. Doctor is **read-only** (does not install).
 
-Do not run FR `init.sh` on this repo (`FRANKEN-INIT.md` copy-list only).
-Do not `br agents --add --force` over `AGENTS.md`.
+Doctor exits (Q25 + M8):
+- missing/wrong **required** renderer (fmd, frankenmermaid) or configured extract worker → findings **exit 1**
+- optional missing (br, jev, focr, MCP, yt-dlp, tts) → WARN, doctor may still **exit 0** if no FAIL findings
+- Python required only if the extract command is Python
+- **exit 4** = operational worker failure *outside* doctor inventory
+- **exit 5** = harvest lock, not doctor
+
+`schema.sql`: sources, proposers, claims, runs, grades. Claims cannot yet store two evidence paths — do not implement Verified until a migration bead lands.
 
 ---
 
-## 3. Shape and pins
-
-- One Cargo package `wr`, bin `wr`, modules under `src/` (beads_rust). Split crate only with a bead + compile receipt.
-- Pins (`PINS.md`): asupersync **0.5.0** crates.io; franken_markdown **v0.4.5**; frankenmermaid **v0.2.0**. Receipts after first install → `ops/install-receipts.md`.
-- sqlite3 **file** (`schema.sql`). FrankenSQLite engine only after an Adopt packet.
-- Installer: `scripts/install.sh` detect/print/install pinned tools. No rustup surprise. `--yes` / `--dry-run` / `--robot`.
-- Extract: PATH worker (default Trafilatura). Missing worker FAIL. Python missing WARN unless that worker *is* Python.
-
-`schema.sql` tables: `sources`, `proposers`, `claims`, `runs`, `grades`.
-
----
-
-## 4. Lock register (every letter from the session)
+## 4. Lock register
 
 ### Product Q
 
 | ID | Lock |
 |---|---|
-| Q4 | Local proposer + NVIDIA NIM secondary; URLs only into `proposers` |
-| Q11 | Isolated proposers; Verified needs second evidence path |
-| Q12 | Export kit; Opus optional; human signs |
-| Q13 | Twelve verbs (install doctor init harvest pin claim check export synthesize sign show service) |
-| Q15 | Jev fail-open (WARN, harvest continues) |
-| Q16 | sqlite3 file; fsqlite later |
-| Q18 | Typed repair budget; new row; no mutate |
-| Q19 | Public repo |
-| Q20 | pin class = inbox |
-| Q21 | license classes open / fair-use-quote / unknown / restricted |
-| Q22 | All source classes planned; X/Reddit via existing MCP/Cloudflare |
-| Q23 | optional allow/deny hosts |
-| Q24 | L0 PASS → frankenmermaid PNG + fmd PDF |
-| Q25 | doctor FAIL: fmd + frankenmermaid; WARN: jev, focr, MCP, yt-dlp, tts, br |
-| Q30 | workers are command or url |
-| Q31 | bootstrap curl + uv/pipx for Python organs only |
-| Q32 | robot JSON: ok verb exit week paths error counts repairs warnings kit_hash |
-| Q33 / M1 | Drive folder env/toml; WARN if unset |
-| Q34 / M3 | No unattended sign. Service default **off** |
-| Q35 | **STRUCK** — replaced by G12-C |
-| Q36 | PINS + MIT + FR copy-list |
+| Q4 | Local + NIM proposers; URLs only into `proposers` |
+| Q11 | Isolated proposers. Verified needs **two independently fetched, hash-verified** sources. Mirrors/reposts/same-text blogs are one source. Support review covers negation/scope/units/context. Jaccard never promotes. |
+| Q12 | Kit export; Opus optional; human signs |
+| Q13 | **Only** these verbs: install doctor init harvest pin claim check export synthesize sign show service |
+| Q15 | Jev fail-open |
+| Q16 | sqlite3 file |
+| Q18 | Typed repair; new row; no mutate |
+| Q19 | Public |
+| Q20 | pin = inbox |
+| Q21 | license class is classification not permission; unknown/restricted export metadata+pointers only unless a recorded authorization |
+| Q22 | All classes planned; X/Reddit via existing MCP |
+| Q23 | allow/deny hosts |
+| Q24 | L0 PASS → PNG + PDF |
+| Q25 | see §3 doctor exits |
+| Q30 | command or url; each worker declares timeout + output cap |
+| Q31 | curl + uv/pipx for Python organs |
+| Q32 | envelope keys; types live in a **schema file not yet written** |
+| Q33/M1 | Drive WARN if unset |
+| Q34/M3 | service default off; never unattended sign |
+| Q35 | STRUCK |
+| Q36 | PINS MIT FR copy-list |
 
 ### Harvest G
 
 | ID | Lock |
 |---|---|
-| G1 | X `x-cli-infisical`; Reddit MCP `get_subreddit_posts` / `get_post_comments` |
-| G2 | NIM proposer URLs only |
-| G3 | Local proposer missing → WARN |
-| G4 | Pointer types explicit (byte / page / youtube_t / …) |
-| G5 | Jaccard ≥ 0.6 for Verified span |
-| G6 | Withheld = label only |
-| G7 | `searched_at` snapshot on the run |
-| G8 | Host suffix match; deny wins |
-| G9 | API first; 403 → one Trafilatura GET; still honor G8/G10/G1 |
-| G10 | Discover robots + terms.txt; honor deny; 402=blocked; optional web-bot-auth; trigger=fetcher |
-| G11 | UA `weekly_research/0.1 (+repo)`; token `weekly_research`; wr.toml override |
-| G12 | One question per week. W40 desk. W41 mechanisms |
+| G1 | X x-cli-infisical; Reddit MCP get_subreddit_posts / get_post_comments |
+| G2 | NIM → proposers only. Source admission needs fetch receipt + CAS hash |
+| G3 | local proposer missing WARN |
+| G4 | ptr_kind byte / page / youtube_t / …; resolver computes coords |
+| G5 | Jaccard ≥ 0.6 alignment heuristic only |
+| G6 | withheld = label |
+| G7 | searched_at + freeze protocol hash and UTC cutoff at run start |
+| G8 | exact host or dot-suffix; deny wins; recheck redirects |
+| G9 | 403 fallback only with affirmative auth for that route; not circumvention |
+| G10 | robots + terms.txt; absent terms ≠ permission; 402 blocked |
+| G11 | UA weekly_research/0.1 (+repo) |
+| G12 | one question / week |
 
 ### Synth S
 
-| ID | Lock |
-|---|---|
-| S1 | Opus command/url; stdin kit paths; writes only synth/ + dispatch/ |
-| S2 | matrix.md synthesis.md plan.md risks.md methods.md |
-| S3 | ntm.json + depends_on |
-| S4 | Five check-synth predicates (paths exist, no novel URLs, matrix ids, five names only) |
-| S5 | renders.json: counts.png + SIGN.pdf |
-| S6 | wr check writes COUNTS + L0; human ASK + signature |
-| S7 | Kit = text set + counts.png + SIGN.pdf; no snap bytes |
+S4 predicates (all five):
+1. Every `plan.md` path exists
+2. Every ntm `inputs[]` exists; `depends_on` ids exist
+3. No URL in synthesis.md that is not a source row
+4. matrix.md claim ids exist in ledger
+5. No extra files under synth/ beyond the five names
 
-### Install / runtime D
+Plus: check-synth validates claim **text and tier** against the registry, not only ids.
 
-| ID | Lock |
-|---|---|
-| D-lang | Rust + asupersync from doctor |
-| D-shape | One package |
-| D-beads | br if present else JSONL; doctor WARN if br missing |
-| D-pin | asupersync 0.5.0 crates.io |
-| D1 | Record crate names + sha256 after first install |
-| D2 | No rustup in installer |
-| D4 | FAIL if extract worker missing |
-| D6 | Five SQL tables |
-| D7 | A+: exclusive run + parallel proposers/fetch with per-host cap |
+S7: export only manifest-listed artifacts from publication-approved records. Same rights check on md/json/pdf/png/wav.
 
-### Mailbox M
+### D / M
 
-| ID | Lock |
-|---|---|
-| M1 | WR_DRIVE_FOLDER / wr.toml; WARN unset |
-| M2 | workers.tts after sign; script.md → show/vo.wav; WARN if missing |
-| M3 | `wr service install\|status\|uninstall`; launchd/systemd; harvest+export only; default off |
-| M4 | Per-claim youtube_t ≤90s or 800 chars; full VTT local |
-| M5 | CAS; pin signed hashes; gc unpinned after 30d + unused in last 12 signed weeks; write compact.md first |
-| M6 | Local logs `~/.local/share/wr` only; opt-in counts = later bead |
-| M7 | wr semver; weeks YYYY-Www; pins tagged |
-| M8 | exit 0 / 1 findings / 2 usage / 4 worker / **5 lock** / 130 cancel |
+D7 A+ stands. Storage still **unspecified**: driver, journal, busy, queue cap, publish-snap-before-row, never hold a txn across network. Freeze those before harvest code.
+
+M4: **both** ≤90s **and** ≤800 chars per public YT quote; aggregate budget by underlying work; not a fair-use harbor.
+M5: CAS + pins; compact.md before gc; GitHub is not ACM archival.
+M8: 0 / 1 / 2 / 4 / 5 / 130 as above.
 
 ---
 
-## 5. Pipeline
+## 5. Canonical verbs
 
-```
-protocol.yaml → harvest (Region) → sources+proposers
-             → claim (pointers) → L0 check
-             → export kit → mailbox in/
-             → synthesize (Opus) → check synth
-             → human sign → show (mermaid, fmd, tts)
-             → dispatch ntm.json
-```
-
-Grey-lit / X / Reddit: leads, not Verified alone.
-Verified: second path + Jaccard ≥ 0.6 on the cited span.
+Q13 only. README, SKILL.md, and `ntm.json` examples that say plan/test/review are **stale**. Fix those files before claiming operator-surface committed.
 
 ---
 
 ## 6. Verb status
 
-| Verb | Status | First proof |
-|---|---|---|
-| doctor | planned | `wr doctor --robot` matches envelope; missing fmd exit 1 |
-| init | planned | schema.sql applied |
-| install | planned | install.sh receipts |
-| harvest pin claim check | planned | after doctor committed |
-| export synthesize sign show | planned | after L0 |
-| service | planned | default off |
+All verbs `planned`. First possible committed: `doctor` after doctor_contract receipt.
 
 ---
 
-## 7. Still planned (not locks — numbers / files)
+## 7. Known defects (do not close beads on these files)
 
-- `max_inflight_global` / `max_inflight_per_host` defaults
-- Cron timezone
-- `rust-toolchain.toml` (follow asupersync 0.5 nightly)
-- CI matrix
-- TESTING_FOR_AGENTS.md
-- AGENTS.md 12 patterns verbatim + RULE 0
-- Agent Mail reservations when two writers
-
-These stay `Unknown` until a bead closes them. They do not block `wr-doctor`.
+- install.sh inventory (`bin_ok`)
+- no Cargo.toml / src
+- no robot schema / doctor_contract
+- AGENTS.md missing RULE 0 + 12 patterns verbatim
+- GAPS.md / KERNEL.md duplicate authority (defer merge until doctor exists — process-porn to expand them now)
 
 ---
 
-## 8. How to amend
+## 8. Amend
 
-1. Change this file with a reason.
-2. Row in UPGRADE_LOG.md.
-3. If a bead assumed the old lock, open a new bead; do not silently close.
+Change this file + UPGRADE_LOG row. Do not close a bead on prose.
