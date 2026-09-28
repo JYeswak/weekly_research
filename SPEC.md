@@ -26,7 +26,8 @@ Frozen from the planning session (2026-09-27/28). Amendments need a date and rea
 | Q24 | L0 PASS → fmd PDF + mermaid PNG (DRAFT if unsigned) |
 | Q25 | doctor FAIL: extras + gitignore + sqlite + fmd + mermaid. WARN: jev, focr, MCP, yt-dlp |
 | Q30 | worker command or url |
-| Q31 | Both installers: curl script + uv/pipx |
+| Q31 | curl installer + uv/pipx |
+| Q32 | `--robot` envelope: ok, verb, exit, week, paths[], error, counts, repairs[], warnings[], kit_hash |
 
 ## Agent ergonomics
 
@@ -34,7 +35,8 @@ Frozen from the planning session (2026-09-27/28). Amendments need a date and rea
 - Non-zero exit is the gate
 - Skill forbids `wr sign` and snap commits
 - `wr init` is the only week-folder constructor
+- Robot does not dump the full ledger; use `wr show` / files in paths[]
 
 ## Open
 
-Robot JSON schema? episode 1 brief? cron weekday? Drive connector? local MCP URLs?
+Episode 1 brief? cron weekday? Drive connector vs copy? local MCP URLs?
