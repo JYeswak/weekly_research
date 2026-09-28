@@ -6,10 +6,9 @@ Frozen from the planning session (2026-09-27/28). Amendments need a date and rea
 
 - Repo: `JYeswak/weekly_research` (public)
 - CLI: `wr` — operator and agent entry (`--robot` JSON)
-- Install: `scripts/install.sh` now; pipx/uv when the package exists
-- Init: `wr init --week YYYY-Www` copies `weeks/_template`
+- Install: `curl | bash` `scripts/install.sh` on the Ultra; `uv tool install` / `pipx install` from this repo on other machines
+- Init: `wr init --week YYYY-Www` copies `weeks/_template`; `wr init --skill` copies the skill into the agent surface
 - Agent skill: `skills/weekly-research/`
-- Audience: AI-friendly ops / engineers; build-in-public lab notebook
 
 ## Locks
 
@@ -25,8 +24,9 @@ Frozen from the planning session (2026-09-27/28). Amendments need a date and rea
 | Q18 | Typed repair budget |
 | Q19–Q23 | public repo; pin=inbox; license class; all classes + MCP; optional hosts |
 | Q24 | L0 PASS → fmd PDF + mermaid PNG (DRAFT if unsigned) |
-| Q25 | doctor FAIL: python extras + snaps gitignore + sqlite writable + fmd + mermaid renderer. WARN: jev, focr, MCP, yt-dlp |
+| Q25 | doctor FAIL: extras + gitignore + sqlite + fmd + mermaid. WARN: jev, focr, MCP, yt-dlp |
 | Q30 | worker command or url |
+| Q31 | Both installers: curl script + uv/pipx |
 
 ## Agent ergonomics
 
@@ -37,4 +37,4 @@ Frozen from the planning session (2026-09-27/28). Amendments need a date and rea
 
 ## Open
 
-Installer backend (pipx vs uv vs curl)? robot JSON schema fields? episode 1 brief? cron weekday? Drive connector? local MCP URLs?
+Robot JSON schema? episode 1 brief? cron weekday? Drive connector? local MCP URLs?
