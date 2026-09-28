@@ -1,0 +1,13 @@
+{
+  "week": "YYYY-Www",
+  "tasks": [
+    {
+      "id": "T1",
+      "verb": "test",
+      "inputs": [],
+      "done_when": "",
+      "owner": "human",
+      "depends_on": []
+    }
+  ]
+}
