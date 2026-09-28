@@ -1,17 +1,17 @@
 # Gaps and unknowns
 
-G1–G12, S1–S7 frozen. D-lang/shape/beads/pin/D1/D4 frozen.
-
-## Still install
-
-| ID | Status |
-|---|---|
-| D2 | no rustup surprise |
-| D3 | folded into D1-A |
-| D4 | FROZEN A — FAIL if extract worker missing; Python WARN only |
-| D6 | schema.sql |
-| D7 | concurrent harvest |
+Harvest, synth, install D* frozen except mailbox.
+D7-A+: exclusive run per week db; parallel proposers + per-host-capped fetch inside the Region.
 
 ## Mailbox
 
-M1–M8 open.
+| ID | Gap |
+|---|---|
+| M1 | Drive folder ids |
+| M2 | Voice |
+| M3 | Automations |
+| M4 | YouTube quote cap |
+| M5 | Snap retention |
+| M6 | Telemetry |
+| M7 | Repo versioning |
+| M8 | Error codes |
