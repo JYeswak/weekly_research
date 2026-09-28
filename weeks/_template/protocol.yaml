@@ -4,7 +4,9 @@ inclusion: ""
 exclusion: ""
 since: ""
 until: ""
-source_classes: [arxiv, github, web, inbox]
-grey_lit: vendor blogs Inference only; X/Reddit are leads not pins
+source_classes: [arxiv, github, web, inbox, youtube, openalex, x, reddit]
+allow_hosts: []
+deny_hosts: []
+grey_lit: vendor blogs Inference only; X/Reddit are leads not Verified pins
 conflict: report
 max_sources: 12
