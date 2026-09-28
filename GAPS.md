@@ -4,13 +4,8 @@
 
 | ID | Status |
 |---|---|
-| G1 | FROZEN A — X CLI + Reddit MCP |
-| G2 | FROZEN B — NIM rich wire, url-only ledger |
-| G3 | FROZEN B — local proposer role, WARN if missing |
-| G4 | FROZEN A — ptr_kind + excerpt_hash |
-| G5 | FROZEN B — Jaccard ≥ 0.6 + not Contradicted |
-| G6 | FROZEN A — withhold on inject/instruction/jailbreak labels; score stored; τ later in wr.toml |
-| G7 | `until: now` |
+| G1–G6 | frozen |
+| G7 | FROZEN A — `now` → searched_at + protocol.lock.yaml; later runs do not rewrite first lock |
 | G8 | host match |
 | G9 | GitHub 403 |
 | G10 | politeness |
@@ -23,4 +18,4 @@ S1–S7 synth. D1–D7 install. M1–M8 mailbox.
 
 ## Closed
 
-C-pins, C-spdx, C-fr-init, C-install, G1–G6.
+C-pins, C-spdx, C-fr-init, C-install, G1–G7.
