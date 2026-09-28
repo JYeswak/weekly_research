@@ -8,14 +8,19 @@
 | G2 | FROZEN B — NIM rich wire, url-only ledger |
 | G3 | FROZEN B — local proposer role, WARN if missing |
 | G4 | FROZEN A — ptr_kind + excerpt_hash |
-| G5 | FROZEN B — both nonempty, hashes ok, neither Jev-Contradicted, Jaccard ≥ 0.6 |
-| G6 | Jev τ |
-| G7–G12 | searched_at, hosts, GitHub 403, politeness, UA, W40 5+7 |
+| G5 | FROZEN B — Jaccard ≥ 0.6 + not Contradicted |
+| G6 | FROZEN A — withhold on inject/instruction/jailbreak labels; score stored; τ later in wr.toml |
+| G7 | `until: now` |
+| G8 | host match |
+| G9 | GitHub 403 |
+| G10 | politeness |
+| G11 | User-Agent |
+| G12 | W40 budget |
 
 ## Open clusters
 
-S1–S7 synth/dispatch. D1–D7 install. M1–M8 mailbox.
+S1–S7 synth. D1–D7 install. M1–M8 mailbox.
 
 ## Closed
 
-C-pins, C-spdx, C-fr-init, C-install, G1–G5.
+C-pins, C-spdx, C-fr-init, C-install, G1–G6.
