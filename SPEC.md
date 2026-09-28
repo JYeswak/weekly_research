@@ -9,6 +9,7 @@ Frozen from the planning session (2026-09-27/28). Amendments need a date and rea
 - Install: `curl | bash` `scripts/install.sh` on the Ultra; `uv tool install` / `pipx install` from this repo on other machines
 - Init: `wr init --week YYYY-Www` copies `weeks/_template`; `wr init --skill` copies the skill into the agent surface
 - Agent skill: `skills/weekly-research/`
+- Mailbox: same folder layout locally (`mailbox/`) and on Google Drive once connected. Drive is an **early implementation requirement**, not week-zero of this planning session.
 
 ## Locks
 
@@ -27,16 +28,15 @@ Frozen from the planning session (2026-09-27/28). Amendments need a date and rea
 | Q25 | doctor FAIL: extras + gitignore + sqlite + fmd + mermaid. WARN: jev, focr, MCP, yt-dlp |
 | Q30 | worker command or url |
 | Q31 | curl installer + uv/pipx |
-| Q32 | `--robot` envelope: ok, verb, exit, week, paths[], error, counts, repairs[], warnings[], kit_hash |
+| Q32 | robot envelope: ok, verb, exit, week, paths[], error, counts, repairs[], warnings[], kit_hash |
+| Q33 | Export layout is mailbox-identical. Drive connector is an early build requirement; planning continues with local mailbox/ |
 
 ## Agent ergonomics
 
-- `--robot` on every verb
-- Non-zero exit is the gate
-- Skill forbids `wr sign` and snap commits
-- `wr init` is the only week-folder constructor
-- Robot does not dump the full ledger; use `wr show` / files in paths[]
+- `--robot` on every verb. Non-zero exit is the gate.
+- Skill forbids `wr sign` and snap commits.
+- `wr init` is the only week-folder constructor.
 
 ## Open
 
-Episode 1 brief? cron weekday? Drive connector vs copy? local MCP URLs?
+Episode 1 brief? cron weekday (America/Denver)? local MCP URLs in wr.toml (never commit secrets)?
