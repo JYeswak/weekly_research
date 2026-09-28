@@ -25,6 +25,7 @@ Frozen from the planning session (2026-09-27/28). Amendments need a date and rea
 | Q19 | Public repo created first; spec lives in-tree |
 | Q20 | `pin` = inbox/local file only. Git SHAs belong on harvest rows |
 | Q21 | Every source row has license class: `open | fair-use-quote | unknown | restricted`. `restricted` never appears as a public excerpt |
+| Q22 | Week-1 classes: web, arxiv, github, inbox, youtube, openalex, x, reddit. X/Reddit harvest calls existing local/Cloudflare MCPs — not a new scraper in wr. Posts stay grey-lit for Verified |
 
 ## Protocol (brief C fields)
 
@@ -53,10 +54,12 @@ Grey-lit (X, Reddit, vendor blogs) = Inference / leads. Conflict policy is repor
 
 Allowed extras in Python: `httpx`, `trafilatura`.
 
-PATH: `focr`, `jev`, `localbench`, `fmd`, optional `fsqlite`, optional SearXNG/LDR.
+PATH: `focr`, `jev`, `localbench`, `fmd`, optional `fsqlite`, optional SearXNG/LDR, optional yt-dlp.
+
+X/Reddit: existing MCP/Cloudflare workers configured in wr config (URL or command). Missing worker = doctor WARN + class Unknown, same fail-open as Jev.
 
 NIM / Opus / Grok / Kimi / GLM: proposers or referees. They do not write `sources` or sign.
 
 ## Open (not frozen)
 
-Week-1 source_classes beyond web/arxiv/github/inbox? Domain allow/deny? fmd/mermaid week 1? doctor checklist? robot JSON? episode 1 brief? cron weekday? Drive connector vs copy?
+Domain allow/deny? fmd/mermaid week 1? doctor checklist? robot JSON? episode 1 brief? cron weekday? Drive connector vs copy? Exact X/Reddit MCP endpoint names?
